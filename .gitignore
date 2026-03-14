@@ -1,0 +1,21 @@
+# 1. Dependency directories
+# Never upload the thousands of files in vendor
+/vendor/
+
+# 2. Database backups
+# Your .sql export contains sensitive user data and passwords
+*.sql
+
+# 3. Connection & Sensitive Files
+# If you have your Gmail password in db.php, you might want to 
+# create a template instead, but for now, ignore the actual file.
+includes/db.php
+
+# 4. Environment and OS files
+.env
+.DS_Store
+Thumbs.db
+
+# 5. User Uploads
+# Prevents your GitHub from being filled with test images
+/uploads/

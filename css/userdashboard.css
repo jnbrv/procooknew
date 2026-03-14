@@ -1,0 +1,621 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --primary-orange: #ff6600;
+    --dark-orange: #e65c00;
+    --warm-white: #fffcf9;
+    --text-dark: #2d2d2d;
+    --soft-peach: #fff5ee;
+    --sidebar-width: 260px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.dashboard-body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--soft-peach);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+/* Sidebar Styles */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--primary-orange);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+}
+
+.sidebar-header {
+    margin-bottom: 40px;
+}
+
+
+.back-arrow {
+    color: white;
+    font-size: 1.8rem;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+.brand-logo {
+    text-align: center;
+}
+
+.brand-logo img {
+    width: 60px;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+.brand-logo h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.sidebar-nav {
+    flex-grow: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+    font-size: 0.95rem;
+}
+
+.nav-item:hover, .nav-item.active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-icon {
+    font-size: 1.3rem;
+    margin-right: 15px;
+}
+
+/* Main Content Area */
+.content {
+    flex-grow: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.content-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.content-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.search-container ion-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border-radius: 30px;
+    border: none;
+    background: #e0e0e0;
+    outline: none;
+}
+
+/* Recipe Grid */
+.recipe-section {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.recipe-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    display: block; /* Important for the link to fill the space */
+    text-decoration: none;
+    color: inherit;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+}
+
+.recipe-img {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
+
+.recipe-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.recipe-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+
+/* Styling additions for the Create Recipe module */
+
+.recipe-section#create-recipe-section {
+    display: none; /* Hidden by default; JavaScript shows it */
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.recipe-section.create-recipe-active {
+    display: block;
+    opacity: 1;
+}
+
+.page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Split layout like wireframe */
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.dashboard-input-group {
+    margin-bottom: 25px;
+}
+
+.dashboard-input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.dashboard-input-group input, .dashboard-input-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #d1d1d1;
+    background: #ffffff; /* Match search bar styling */
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.dashboard-input-group textarea {
+    height: 120px;
+    resize: none; /* Professional preference for fixed areas */
+}
+
+/* Specific styling for longtext areas */
+.dashboard-input-group .rich-textarea {
+    height: 250px;
+}
+
+.dashboard-input-group input:focus, .dashboard-input-group textarea:focus {
+    background: white;
+    border-color: var(--primary-orange);
+    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.1);
+}
+
+/* Drag and Drop Styling */
+.universal-drop-zone {
+    position: relative; /* REQUIRED: Anchor for the remove-btn */
+    width: 100%;
+    height: 300px;
+    background: #e0e0e0;
+    border-radius: 12px;
+    border: 2px dashed #bbb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden; /* FIX: Clips the image so it doesn't overlap corners */
+    transition: all 0.3s ease;
+}
+
+.universal-drop-zone.active {
+    border-color: var(--primary-orange);
+    background: rgba(255, 102, 0, 0.05);
+}
+
+.drop-icon {
+    font-size: 3rem;
+    color: #888;
+    margin-bottom: 15px;
+}
+/* Add this to style the image when it is uploaded */
+.universal-drop-zone img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* FIX: Makes the image fill the zone without stretching */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Sits behind the 'X' button but in front of icons */
+}
+
+.drop-text {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Style the wrapper injected by your JS */
+.preview-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+
+/* Force the image to cover the area without stretching */
+.preview-wrapper img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* This is the "Magic" property */
+    border-radius: 12px;
+}
+
+.file-feedback {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--text-dark);
+}
+
+/* Submit Button styling consistent with landing page buttons */
+.submit-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.dashboard-submit-btn {
+    padding: 12px 60px;
+    background: var(--primary-orange);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dashboard-submit-btn:hover {
+    background: var(--dark-orange);
+    transform: translateY(-2px);
+}
+
+/* Subtle "Purchased" indicator */
+#purchased-recipes-section .recipe-card::after {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--primary-orange);
+    color: white;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* Container Layout */
+.settings-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.settings-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* Two columns like the wireframe */
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.section-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 40px 0;
+}
+
+/* Orange Buttons to match wireframe */
+.orange-btn {
+    background-color: #ff6600; /* Your brand orange */
+    color: white;
+    padding: 9px 30px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.orange-btn:hover {
+    background-color: #e65c00;
+}
+
+/* MFA Toggle Switch Styling */
+/* Container for the whole MFA line to match your image */
+.mfa-toggle-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9f9f9; /* Light grey background from your screen */
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;       /* Total width of the track */
+    height: 26px;      /* Total height of the track */
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* 2. The slider track */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .3s;
+    border-radius: 34px;
+}
+
+/* 3. The moving circle (The Ball) */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;      /* Height of the ball */
+    width: 20px;       /* Width of the ball */
+    left: 3px;         /* Starting gap from the left */
+    bottom: 3px;       /* Starting gap from the bottom */
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 4. The Active State (Background Color) */
+input:checked + .slider {
+    background-color: #ff6600; /* Your brand orange from image 7 */
+}
+
+/* 5. THE FIX: Controlled Movement */
+/* Math: 
+   Total Width (50px) 
+   - Ball Width (20px) 
+   - Left Gap (3px) 
+   - Right Gap (3px) 
+   = 24px movement.
+*/
+input:checked + .slider:before {
+    transform: translateX(24px); 
+}
+
+/* Reposition the X button to be inside the top-right corner */
+.remove-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10; /* Ensures it sits above the image */
+    background-color: var(--primary-orange);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.remove-btn:hover {
+    background-color: #e65c00;
+    transform: scale(1.1);
+}
+
+.remove-btn ion-icon {
+    font-size: 20px;
+    --ionicon-stroke-width: 48px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-footer {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Ensure the logout button doesn't revert to a default button look */
+/* Target the logout link specifically in the sidebar */
+.sidebar .logout-btn, 
+.sidebar-footer a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: white !important; /* Force white background */
+    color: black !important;           /* Force black text */
+    padding: 10px 20px;
+    border-radius: 50px;               /* This makes it a pill shape */
+    text-decoration: none !important;  /* Removes the blue underline */
+    font-weight: bold;
+    font-size: 14px;
+    width: fit-content;
+    margin: 20px auto;                 /* Centers it in the sidebar */
+    transition: 0.3s ease;
+    border: none;
+}
+
+.sidebar .logout-btn:hover {
+    background-color: #f0f0f0 !important;
+    transform: scale(1.05);
+}
+
+.btn-cancel {
+    background: #eee;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-clear {
+    background-color: #f0f0f0;
+    color: #444;
+    padding: 12px 30px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-clear:hover {
+    background-color: #e0e0e0;
+    border-color: #bbb;
+}
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px; /* Aligns with your Personal Info column length */
+}
+
+.pass-field {
+    width: 100%;
+    padding-right: 40px !important; /* Space for the icon */
+    border: 2px solid transparent; /* Prepare for validation border */
+    transition: border-color 0.3s ease;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #888;
+    z-index: 5;
+}
+
+.toggle-password:hover {
+    color: #ff6600;
+}
+
+/* 1. Remove underline from the entire card link */
+.recipe-card-link, 
+.recipe-card {
+    text-decoration: none !important;
+    color: inherit; /* This makes the text use the color of its parent, not 'link blue' */
+}
+
+/* 2. Target the specific H4 and Small tags just in case */
+.recipe-info h4, 
+.recipe-info small {
+    text-decoration: none;
+    color: #333; /* Or your preferred dark color */
+}
+
+/* 3. Ensure it stays clean even when the user hovers over it */
+.recipe-card:hover {
+    text-decoration: none;
+}
+
+.empty-container {
+    grid-column: 1 / -1; /* Span the whole grid */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    gap: 15px;
+}

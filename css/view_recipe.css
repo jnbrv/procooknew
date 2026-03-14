@@ -1,0 +1,556 @@
+.recipe-view-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.recipe-detail-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.recipe-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.recipe-main-img img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.recipe-meta {
+    margin-top: 15px;
+}
+
+.recipe-meta h3 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.price-tag.free {
+    color: #666;
+    font-weight: 500;
+}
+
+.recipe-description h4, 
+.recipe-section-content h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #2d2d2d;
+}
+
+.view-divider {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 30px 0;
+}
+
+.ingredients-list, .procedure-list {
+    padding-left: 20px;
+    line-height: 1.8;
+}
+
+.ingredients-list li {
+    margin-bottom: 10px;
+    list-style-type: disc;
+}
+
+.procedure-list li {
+    margin-bottom: 15px;
+}
+
+.btn-secondary {
+    padding: 10px 40px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+}
+
+.update-recipe-container {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    z-index: 1;
+}
+
+/* Two-column layout for the top */
+.update-grid-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+/* High-contrast Input Styling */
+.dashboard-input-group input, 
+.dashboard-input-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #f2f2f2; /* Light grey base */
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+/* Focus state so they don't blend in */
+.dashboard-input-group input:focus, 
+.dashboard-input-group textarea:focus {
+    background-color: #ffffff;
+    border-color: #ff6600;
+    box-shadow: 0 0 8px rgba(255, 102, 0, 0.1);
+    outline: none;
+}
+
+/* Image Upload Styling */
+.update-drop-zone {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    border: 2px dashed #ccc;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #eaeaea;
+    cursor: pointer;
+}
+
+.update-drop-zone img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.upload-hint {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Buttons */
+.update-actions, .view-actions {
+    display: flex;
+    justify-content: space-between; /* Pushes groups to opposite ends */
+    align-items: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.full-width textarea {
+    min-height: 150px;
+    resize: vertical; /* Allows manual resizing */
+}
+
+.update-drop-zone:hover::after {
+    content: '📷 Change Photo';
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+/* Modal Background Overlay */
+.modal-overlay {
+    position: fixed;      /* Crucial: locks it to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    
+    /* FIX: Centering logic for image_5.png */
+    display: none;        /* Hidden by default, JS toggles this to 'flex' */
+    justify-content: center; /* Centers horizontally */
+    align-items: center;     /* Centers vertically */
+    
+    z-index: 9999;        /* Ensures it sits above EVERYTHING else */
+}
+
+/* The Modal Box */
+#deleteModal .modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers icon and h2 horizontally */
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.warning-icon {
+    font-size: 3rem;
+    color: #ff4d4d;
+    margin-bottom: 10px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn-cancel {
+    background: #f0f0f0;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-confirm-delete {
+    background: #ff4d4d; /* Danger Red */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.action-group-left {
+    display: flex;
+    gap: 15px;
+}
+
+/* Turning that plain text into a proper button */
+.btn-danger-outline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 20px;
+    background: transparent;
+    border: 1.5px solid #ff4d4d;
+    color: #ff4d4d;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-danger-outline:hover {
+    background: #ff4d4d;
+    color: white;
+    box-shadow: 0 4px 10px rgba(255, 77, 77, 0.2);
+}
+
+/* Edit Button Styling (Ghost/Outline style) */
+.btn-edit-outline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: transparent;
+    border: 1.5px solid #5d3fd3; /* Using a professional purple or your brand secondary color */
+    color: #5d3fd3;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-edit-outline:hover {
+    background: #5d3fd3;
+    color: white;
+    box-shadow: 0 4px 10px rgba(93, 63, 211, 0.2);
+}
+
+#img-preview {
+    transition: opacity 0.3s ease;
+}
+#img-preview[src] {
+    opacity: 1;
+}
+
+/* Blurred Content */
+.content-locked {
+    position: relative;
+    overflow: hidden;
+    max-height: 400px; /* Cuts off the recipe so they can't see the whole thing */
+}
+
+.blur-text {
+    filter: blur(5px);
+    user-select: none; /* Prevents highlighting/copying the text */
+    pointer-events: none;
+}
+
+.lock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7); /* Light transparent white */
+    backdrop-filter: blur(8px); /* This is the magic part! */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.btn-unlock {
+    background-color: var(--primary-orange);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 12px; /* Matching your new curvy style */
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
+    margin-top: 20px;
+}
+
+/* Auth Modal Specifics */
+.auth-modal-card {
+    text-align: center;
+    border-radius: 20px; /* Smooth corners */
+    padding: 40px;
+}
+
+.btn-modal-login {
+    display: block;
+    background: var(--primary-orange);
+    color: white;
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.btn-modal-signup {
+    display: block;
+    background: #f0f0f0;
+    color: var(--text-dark);
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* Add this to your CSS if you want specific 'Saved' styling that is still orange */
+.btn-saved {
+    background-color: #ff6600; /* Your orange color */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.9; /* Slight difference to show it's already 'active' */
+}
+
+.view-actions {
+    display: flex;
+    justify-content: space-between; /* This pushes Back to left and others to right */
+    align-items: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    gap: 15px;
+}
+
+.action-group-right {
+    display: flex;
+    gap: 12px; /* Space between Save, Edit, and Delete */
+    align-items: center;
+}
+
+/* Back Button Styling */
+.btn-back {
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.btn-back:hover {
+    background-color: #e0e0e0;
+}
+
+/* Delete Button Styling */
+.btn-delete-outline {
+    background: none;
+    border: 1px solid #ff4d4d;
+    color: #ff4d4d;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.btn-delete-outline:hover {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+/* If viewing from landing page, remove the sidebar offset */
+.landing-layout .content {
+    margin-left: 0 !important;
+    width: 100%;
+    padding-top: 80px; /* Space for the fixed landing header */
+}
+
+/* Ensure the landing header spans full width */
+.landing-layout header {
+    width: 100%;
+    left: 0;
+    z-index: 1000;
+}
+
+/* 1. Ensure the overlay covers the whole screen and centers the card */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darken background */
+    display: none; /* Controlled by JS */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+/* 2. Style the card itself */
+.auth-modal-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* 3. FIX: Shrink that giant logo from image_22fc29.jpg */
+/* Target the logo specifically inside the modal */
+.modal-logo {
+    width: 120px;       /* Set a fixed small width */
+    height: auto;        /* Keeps the image from looking squished */
+    display: block;      /* Helps with centering */
+    margin: 0 auto 20px; /* Centers it and adds space below */
+}
+
+/* 4. Button Container */
+.auth-modal-buttons {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* 5. Primary Action Button */
+.btn-modal-login {
+    background-color: #FF6B00; /* Your theme orange */
+    color: white !important;
+    padding: 15px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+/* 6. Secondary Action Button (Sign Up) */
+.btn-modal-signup {
+    color: #FF6B00 !important;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* 7. Close button (X) in the corner */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #999;
+}
+
+.report-options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.report-option {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 1px solid transparent;
+}
+
+.report-option:hover { background: #f1f1f1; }
+
+.report-option input[type="radio"] { display: none; }
+
+.report-option input[type="radio"]:checked + .custom-radio {
+    background: #ff4757;
+    border-color: #ff4757;
+}
+
+.custom-radio {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin-right: 12px;
+    position: relative;
+    transition: 0.2s;
+}
+
+.label-text { font-size: 0.95rem; color: #444; }
