@@ -2,7 +2,7 @@
 
 ProCook is a PHP-based recipe management and sharing platform that allows users to explore, save, and manage recipes. The platform features user authentication (including Google OAuth), recipe interactions, and much more.
 
-## 🚀 Features
+## Features
 
 * **User Authentication:** Secure sign-up, login, and password recovery.
 * **Google OAuth Integration:** Quick and easy sign-in via Google.
