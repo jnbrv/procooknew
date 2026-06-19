@@ -8,8 +8,8 @@ use PHPMailer\PHPMailer\Exception;
 
 // --- GOOGLE OAUTH SETUP ---
 $client = new Google\Client();
-$client->setClientId('283225461554-4dua83rss9b99bjjj8l4t2o1a8gbjf17.apps.googleusercontent.com'); 
-$client->setClientSecret('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');
+$client->setClientId(''); 
+$client->setClientSecret('');
 $client->setRedirectUri('http://localhost/procook_new/google-callback.php');
 $client->addScope("email");
 $client->addScope("profile");
