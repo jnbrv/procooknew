@@ -31,3 +31,9 @@ Follow these steps to set up the project locally:
 ```bash
 git clone https://github.com/jnbrv/procooknew.git
 cd procooknew
+
+2. Install Dependencies
+Run Composer to install the required backend packages (e.g., PHPMailer, Google API Client):
+
+Bash
+composer install
