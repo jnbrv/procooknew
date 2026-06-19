@@ -12,18 +12,18 @@ ProCook is a PHP-based recipe management and sharing platform that allows users 
 
 ---
 
-## 🛠️ Prerequisites
+## Prerequisites
 
 Before you begin, ensure you have the following installed on your local machine:
 
 * **PHP** (Version 7.4 or higher recommended)
 * **MySQL / MariaDB**
 * **Composer** (PHP dependency manager)
-* A local server environment like **XAMPP**, **MAMP**, or **Laragon**
+* A local server environment like **XAMPP**
 
 ---
 
-## 💻 Getting Started & Installation
+## Getting Started & Installation
 
 Follow these steps to set up the project locally:
 
@@ -63,7 +63,7 @@ http://localhost/procooknew/index.php
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 * `/admin1` - Admin dashboard views and management scripts.
 * `/css` & `/js` - Frontend stylesheets and JavaScript interactions.
@@ -72,7 +72,3 @@ http://localhost/procooknew/index.php
 * `login.php` & `sign-up.php` - User authentication handling.
 
 ---
-
-## 🔒 Security Note
-
-Never commit sensitive credentials (like SMTP passwords or OAuth API keys) directly to the repository. Always utilize environment variables or ignored configuration files.
