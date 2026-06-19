@@ -32,20 +32,20 @@ Follow these steps to set up the project locally:
 git clone [https://github.com/jnbrv/procooknew.git](https://github.com/jnbrv/procooknew.git)
 cd procooknew
 
-2. Install Dependencies
-Run Composer to install the required backend packages (e.g., PHPMailer, Google API Client):
+###2. Install Dependencies
+##Run Composer to install the required backend packages (e.g., PHPMailer, Google API Client):
 
 Bash
 composer install
-3. Database Setup
-Open your database management tool (like phpMyAdmin).
+###3. Database Setup
+##Open your database management tool (like phpMyAdmin).
 
-Create a new database named procook.
+##Create a new database named procook.
 
 Import the database schema file (look for a .sql file inside the project, typically in admin1/ or an includes/ directory if available).
 
-4. Environment Configuration
-Create a configuration file (or update your existing database connection file inside includes/) with your environment credentials:
+###4. Environment Configuration
+##Create a configuration file (or update your existing database connection file inside includes/) with your environment credentials:
 
 Database Credentials: Host, username, password, and database name.
 
@@ -53,12 +53,12 @@ SMTP Settings: Set your mail server details for the password reset and sign-up v
 
 Google OAuth Credentials: Add your Google Client ID and Secret to login.php and google-callback.php.
 
-5. Run the Application
-Move the project folder to your local server's root directory (e.g., htdocs for XAMPP) and access it via your browser:
+###5. Run the Application
+##Move the project folder to your local server's root directory (e.g., htdocs for XAMPP) and access it via your browser:
 
 Plaintext
 http://localhost/procooknew/index.php
-📂 Project Structure
+ Project Structure
 /admin1 - Admin dashboard views and management scripts.
 
 /css & /js - Frontend stylesheets and JavaScript interactions.
@@ -69,7 +69,7 @@ index.php - The main landing page of the application.
 
 login.php & sign-up.php - User authentication handling.
 
-🔒 Security Note
+## Security Note
 Never commit sensitive credentials (like SMTP passwords or OAuth API keys) directly to the repository. Always utilize environment variables or ignored configuration files.
 
 
